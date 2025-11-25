@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ensiklopedia Tradisi Nusantara</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav id="navbar" class="navbar">
+  <div class="nav-inner">
+    <div class="logo">Adat Isitiadat Nusantara</div>
+    <ul class="nav-links">
+      <li><a href="#" id="navHome">Beranda</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <section class="landing">
+    <div class="landing-overlay"></div>
+    <div class="landing-content">
+      <h1>Ensiklopedia Tradisi Nusantara</h1>
+      <p>Menjelajahi 38 Tradisi dari Sabang sampai Merauke</p>
+      <button id="scrollDownBtn" class="landing-btn">Jelajahi ↓</button>
+    </div>
+  </section>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Ensiklopedia Tradisi Nusantara</h1>
+      <p>Mengenal 1 tradisi dari tiap provinsi di Indonesia — Sabang sampai Merauke</p>
+      <div class="controls">
+        <input id="searchInput" type="search" placeholder="Cari tradisi atau provinsi..." />
+        <select id="islandFilter">
+          <option value="all">Semua Pulau</option>
+          <option value="sumatra">Sumatra</option>
+          <option value="jawa">Jawa</option>
+          <option value="kalimantan">Kalimantan</option>
+          <option value="sulawesi">Sulawesi</option>
+          <option value="bali-nusa">Bali & Nusa</option>
+          <option value="maluku">Maluku</option>
+          <option value="papua">Papua</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="cards" id="cardsGrid" aria-live="polite">
+      <!-- Cards akan digenerate oleh JS -->
+    </section>
+
+  <!-- Modal detail provinsi -->
+  <div id="detailModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Tutup">&times;</button>
+      <h2 id="modalTitle"></h2>
+      <p class="prov-info" id="modalSubtitle"></p>
+      <div class="modal-body">
+        <img id="modalImage" alt="" />
+        <div class="modal-text">
+          <h3>Deskripsi</h3>
+          <p id="modalDesc"></p>
+
+          <h4>Asal & Makna</h4>
+          <p id="modalOrigin"></p>
+
+          <p><strong>Waktu Pelaksanaan:</strong> <span id="modalWhen"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

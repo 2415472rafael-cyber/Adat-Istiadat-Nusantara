@@ -1,0 +1,255 @@
+/* reset ringan */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --accent: #C49A6C;
+  --bg: #F6EFE7;
+  --muted:#666;
+  --card-bg:#ffffff;
+  font-family: "Poppins", system-ui, Arial;
+}
+
+body{
+  background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HERO */
+.hero{
+  padding: 48px 16px;
+  background-image: url("../assets/img/hero-pattern.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+.hero-inner{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.hero h1{
+  font-size: 2rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.hero p{
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.controls{
+  display:flex;
+  gap: 10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.controls input[type="search"],
+.controls select{
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  min-width: 240px;
+}
+
+/* MAIN CONTENT */
+.container{
+  width: 100%;
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 0 16px 48px;
+  flex: 1;
+}
+
+/* CARD GRID */
+.cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+.card{
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(20,20,20,0.06);
+  display:flex;
+  flex-direction:column;
+  transition: transform .18s ease;
+}
+.card:hover{
+  transform: translateY(-6px);
+}
+.card img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius: 8px;
+}
+.card h3{ font-size: 1.05rem; margin-top: 6px; }
+.card p{ color:var(--muted); font-size: .92rem; }
+
+.card .meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top: 8px;
+}
+.btn{
+  padding:8px 10px;
+  border-radius: 8px;
+  border:none;
+  background: var(--accent);
+  color:#fff;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+  margin-top: 28px;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* MODAL */
+.modal{
+  position: fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.5);
+  padding: 24px;
+  z-index:100;
+}
+.modal[aria-hidden="false"]{ display:flex; }
+.modal-content{
+  background: #fff;
+  width: 100%;
+  max-width: 920px;
+  border-radius: 12px;
+  padding: 18px;
+  position: relative;
+}
+.modal-close{
+  position:absolute;
+  top:8px; right:10px;
+  border:none;
+  background:transparent;
+  font-size:24px;
+  cursor:pointer;
+}
+.modal-body{
+  display:flex;
+  gap:18px;
+  margin-top:8px;
+}
+.modal-body img{
+  width: 40%;
+  border-radius: 8px;
+}
+.modal-text{ width:60%; }
+
+@media (max-width:800px){
+  .modal-body { flex-direction: column; }
+  .modal-body img{ width:100%; }
+  .hero h1{ font-size:1.5rem; }
+}
+
+/* LANDING PAGE */
+.landing {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: url("../assets/img/landing.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Konten di tengah */
+.landing-content {
+  position: relative;
+  text-align: center;
+  color: white;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.landing-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.landing-content p {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+.landing-btn {
+  padding: 12px 22px;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid #fff;
+  border-radius: 12px;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: 0.2s;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: center;
+  transition: 0.3s ease;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.navbar.visible {
+  opacity: 1;
+  pointer-events: auto;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  opacity: 0.7;
+}
